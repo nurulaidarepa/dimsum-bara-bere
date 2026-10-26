@@ -1,0 +1,618 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Dimsum Bara Bere</title>
+
+<style>
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  --cream: #fff8ed;
+  --red: #a92328;
+  --dark: #681719;
+  --yellow: #ffc94d;
+  --text: #432923;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: Arial, sans-serif;
+  background: var(--cream);
+  color: var(--text);
+  line-height: 1.6;
+}
+
+header {
+  background: var(--cream);
+  padding: 16px 7%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 20px;
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  box-shadow: 0 2px 12px #6b251012;
+}
+
+.logo {
+  color: var(--red);
+  font-size: 23px;
+  font-weight: 900;
+  line-height: 1.1;
+}
+
+nav {
+  display: flex;
+  gap: 22px;
+}
+
+nav a {
+  text-decoration: none;
+  color: var(--text);
+  font-weight: bold;
+}
+
+nav a:hover {
+  color: var(--red);
+}
+
+.btn {
+  display: inline-block;
+  background: var(--red);
+  color: white;
+  padding: 12px 22px;
+  border-radius: 30px;
+  text-decoration: none;
+  font-weight: bold;
+  border: none;
+  cursor: pointer;
+  transition: .2s;
+}
+
+.btn:hover {
+  background: var(--dark);
+  transform: translateY(-2px);
+}
+
+.hero {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  align-items: center;
+  gap: 35px;
+  padding: 65px 8%;
+  background: linear-gradient(120deg, #fff3df, #ffe4bd);
+}
+
+.hero h1 {
+  font-size: clamp(40px, 5vw, 65px);
+  line-height: 1.08;
+  color: var(--dark);
+  margin: 15px 0;
+}
+
+.hero h1 span {
+  color: var(--red);
+}
+
+.hero p {
+  font-size: 18px;
+  margin-bottom: 20px;
+}
+
+.label {
+  display: inline-block;
+  background: var(--yellow);
+  color: var(--dark);
+  padding: 8px 16px;
+  border-radius: 25px;
+  font-weight: bold;
+}
+
+.hero img {
+  width: 100%;
+  height: 360px;
+  object-fit: cover;
+  border-radius: 35px;
+  box-shadow: 0 15px 35px #68171924;
+}
+
+section {
+  padding: 65px 8%;
+}
+
+.heading {
+  text-align: center;
+  margin-bottom: 35px;
+}
+
+.heading h2 {
+  color: var(--red);
+  font-size: 34px;
+}
+
+.heading p {
+  color: #795f54;
+}
+
+.menu-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+}
+
+.card {
+  background: white;
+  border: 1px solid #f3d8b5;
+  border-radius: 20px;
+  overflow: hidden;
+  box-shadow: 0 6px 20px #6817190c;
+  transition: .25s;
+}
+
+.card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 12px 25px #6817191a;
+}
+
+.card img {
+  width: 100%;
+  height: 205px;
+  object-fit: cover;
+  display: block;
+}
+
+.card-content {
+  padding: 18px;
+}
+
+.card h3 {
+  color: var(--red);
+  font-size: 21px;
+  margin-bottom: 5px;
+}
+
+.card p {
+  color: #765a50;
+  font-size: 14px;
+  min-height: 42px;
+}
+
+.price {
+  display: block;
+  color: var(--dark);
+  background: #ffe6a9;
+  padding: 8px;
+  text-align: center;
+  border-radius: 25px;
+  font-weight: bold;
+  margin: 14px 0;
+}
+
+.card .btn {
+  width: 100%;
+  text-align: center;
+}
+
+.about {
+  background: #ffedd9;
+}
+
+.features {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+}
+
+.feature {
+  background: white;
+  padding: 25px;
+  border-radius: 18px;
+  text-align: center;
+}
+
+.feature .icon {
+  font-size: 35px;
+}
+
+.feature h3 {
+  color: var(--red);
+  margin: 8px 0;
+}
+
+.contact-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 25px;
+}
+
+.contact-box {
+  background: white;
+  padding: 28px;
+  border-radius: 20px;
+  border: 1px solid #f3d8b5;
+}
+
+.contact-box h3 {
+  color: var(--red);
+  font-size: 23px;
+  margin-bottom: 15px;
+}
+
+.contact-box p {
+  margin-bottom: 13px;
+  overflow-wrap: anywhere;
+}
+
+.contact-box .btn {
+  margin-top: 10px;
+}
+
+.cta {
+  text-align: center;
+  background: var(--red);
+  color: white;
+}
+
+.cta h2 {
+  font-size: 32px;
+  margin-bottom: 10px;
+}
+
+.cta p {
+  margin-bottom: 22px;
+}
+
+.cta .btn {
+  background: var(--yellow);
+  color: var(--dark);
+}
+
+footer {
+  background: var(--dark);
+  color: white;
+  text-align: center;
+  padding: 25px 15px;
+}
+
+footer p {
+  font-size: 14px;
+  margin-top: 6px;
+}
+
+.wa-float {
+  position: fixed;
+  right: 18px;
+  bottom: 18px;
+  z-index: 20;
+  background: #16834a;
+  color: white;
+  text-decoration: none;
+  padding: 13px 18px;
+  border-radius: 35px;
+  font-weight: bold;
+  box-shadow: 0 5px 18px #0003;
+}
+
+@media (max-width: 760px) {
+  header {
+    padding: 14px 5%;
+    flex-wrap: wrap;
+  }
+
+  nav {
+    width: 100%;
+    justify-content: center;
+    gap: 16px;
+    font-size: 13px;
+    order: 3;
+  }
+
+  header > .btn {
+    padding: 9px 12px;
+    font-size: 12px;
+  }
+
+  .logo {
+    font-size: 19px;
+  }
+
+  .hero {
+    grid-template-columns: 1fr;
+    text-align: center;
+    padding: 45px 6%;
+  }
+
+  .hero img {
+    height: 270px;
+  }
+
+  section {
+    padding: 48px 5%;
+  }
+
+  .menu-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 12px;
+  }
+
+  .card img {
+    height: 145px;
+  }
+
+  .card-content {
+    padding: 12px;
+  }
+
+  .card h3 {
+    font-size: 17px;
+  }
+
+  .card p {
+    font-size: 12px;
+    min-height: 55px;
+  }
+
+  .card .btn {
+    padding: 10px 5px;
+    font-size: 12px;
+  }
+
+  .features {
+    grid-template-columns: 1fr;
+  }
+
+  .contact-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .heading h2 {
+    font-size: 28px;
+  }
+
+  .wa-float {
+    font-size: 13px;
+    right: 10px;
+    bottom: 10px;
+  }
+}
+</style>
+</head>
+
+<body>
+
+<header>
+  <div class="logo">🥟 Dimsum<br>Bara Bere</div>
+
+  <nav>
+    <a href="#beranda">Beranda</a>
+    <a href="#menu">Menu</a>
+    <a href="#tentang">Tentang</a>
+    <a href="#kontak">Kontak</a>
+  </nav>
+
+  <a class="btn" href="https://wa.me/6285703493336">
+    Pesan Sekarang
+  </a>
+</header>
+
+<main>
+
+<section class="hero" id="beranda">
+  <div>
+    <span class="label">Dimsum Ayam Favorit!</span>
+
+    <h1>Dimsum<br><span>Bara Bere</span></h1>
+
+    <p>
+      Gurih, lezat, dan bikin nagih!
+      Dimsum ayam dengan berbagai topping favorit
+      dan harga yang ramah di kantong.
+    </p>
+
+    <p><strong>Mulai Rp1.000 / pcs</strong></p>
+
+    <a class="btn"
+       href="https://wa.me/6285703493336?text=Halo%20Dimsum%20Bara%20Bere%2C%20saya%20mau%20pesan%20dimsum.">
+      💬 Pesan via WhatsApp
+    </a>
+  </div>
+
+  <img
+    src="https://images.unsplash.com/photo-1563245372-f21724e3856d?auto=format&fit=crop&w=1000&q=85"
+    alt="Hidangan dimsum"
+  >
+</section>
+
+<section id="menu">
+  <div class="heading">
+    <h2>🥟 Menu Dimsum</h2>
+    <p>Pilih topping favoritmu, semua cuma Rp1.000 per pcs!</p>
+  </div>
+
+  <div class="menu-grid">
+
+    <article class="card">
+      <img src="https://images.unsplash.com/photo-1563245372-f21724e3856d?auto=format&fit=crop&w=600&q=80"
+           alt="Dimsum topping crab stik">
+      <div class="card-content">
+        <h3>Crab Stik</h3>
+        <p>Dimsum ayam dengan topping crab stik yang gurih.</p>
+        <span class="price">Rp1.000 / pcs</span>
+        <button class="btn" onclick="pesan('Crab Stik')">Pesan Menu</button>
+      </div>
+    </article>
+
+    <article class="card">
+      <img src="https://images.unsplash.com/photo-1496116218417-1a781b1c416c?auto=format&fit=crop&w=600&q=80"
+           alt="Dimsum topping sosis">
+      <div class="card-content">
+        <h3>Sosis</h3>
+        <p>Topping sosis dengan perpaduan rasa yang lezat.</p>
+        <span class="price">Rp1.000 / pcs</span>
+        <button class="btn" onclick="pesan('Sosis')">Pesan Menu</button>
+      </div>
+    </article>
+
+    <article class="card">
+      <img src="https://images.unsplash.com/photo-1563245372-f21724e3856d?auto=format&fit=crop&w=600&q=80"
+           alt="Dimsum topping bakso ikan">
+      <div class="card-content">
+        <h3>Bakso Ikan</h3>
+        <p>Topping bakso ikan untuk sensasi gurih di setiap gigitan.</p>
+        <span class="price">Rp1.000 / pcs</span>
+        <button class="btn" onclick="pesan('Bakso Ikan')">Pesan Menu</button>
+      </div>
+    </article>
+
+    <article class="card">
+      <img src="https://images.unsplash.com/photo-1496116218417-1a781b1c416c?auto=format&fit=crop&w=600&q=80"
+           alt="Dimsum topping tahu">
+      <div class="card-content">
+        <h3>Tahu</h3>
+        <p>Topping tahu dengan tekstur lembut dan rasa gurih.</p>
+        <span class="price">Rp1.000 / pcs</span>
+        <button class="btn" onclick="pesan('Tahu')">Pesan Menu</button>
+      </div>
+    </article>
+
+    <article class="card">
+      <img src="https://images.unsplash.com/photo-1563245372-f21724e3856d?auto=format&fit=crop&w=600&q=80"
+           alt="Dimsum topping udang">
+      <div class="card-content">
+        <h3>Udang</h3>
+        <p>Dimsum ayam dengan topping udang yang menggugah selera.</p>
+        <span class="price">Rp1.000 / pcs</span>
+        <button class="btn" onclick="pesan('Udang')">Pesan Menu</button>
+      </div>
+    </article>
+
+    <article class="card">
+      <img src="https://images.unsplash.com/photo-1496116218417-1a781b1c416c?auto=format&fit=crop&w=600&q=80"
+           alt="Dimsum topping suie ayam">
+      <div class="card-content">
+        <h3>Suie Ayam</h3>
+        <p>Topping suie ayam dengan cita rasa gurih dan khas.</p>
+        <span class="price">Rp1.000 / pcs</span>
+        <button class="btn" onclick="pesan('Suie Ayam')">Pesan Menu</button>
+      </div>
+    </article>
+
+  </div>
+</section>
+
+<section class="about" id="tentang">
+  <div class="heading">
+    <h2>Kenapa Dimsum Bara Bere?</h2>
+    <p>Camilan sederhana yang cocok untuk menemani harimu.</p>
+  </div>
+
+  <div class="features">
+    <div class="feature">
+      <div class="icon">😋</div>
+      <h3>Rasa Gurih</h3>
+      <p>Dimsum ayam dengan topping pilihan.</p>
+    </div>
+
+    <div class="feature">
+      <div class="icon">💛</div>
+      <h3>Harga Hemat</h3>
+      <p>Hanya Rp1.000 per pcs untuk semua varian.</p>
+    </div>
+
+    <div class="feature">
+      <div class="icon">💬</div>
+      <h3>Pesan Mudah</h3>
+      <p>Hubungi kami langsung melalui WhatsApp.</p>
+    </div>
+  </div>
+</section>
+
+<section id="kontak">
+  <div class="heading">
+    <h2>Lokasi & Kontak</h2>
+    <p>Kami tunggu pesananmu!</p>
+  </div>
+
+  <div class="contact-grid">
+    <div class="contact-box">
+      <h3>📍 Alamat Kami</h3>
+      <p>
+        Warung Kalde, Cikeruh,<br>
+        Kec. Jatinangor, Bandung,<br>
+        Jawa Barat 45363.
+      </p>
+      <p><strong>Patokan:</strong> Pertigaan BRIMOB Jatinangor</p>
+
+      <a class="btn"
+         target="_blank"
+         href="https://www.google.com/maps/search/?api=1&query=Warung+Kalde+Cikeruh+Jatinangor">
+        Lihat Google Maps
+      </a>
+    </div>
+
+    <div class="contact-box">
+      <h3>🕒 Jam Operasional</h3>
+      <p>Setiap hari</p>
+      <p><strong>08.00–21.00 WIB</strong></p>
+
+      <h3 style="margin-top:22px">📱 WhatsApp</h3>
+      <p>0857-0349-3336</p>
+
+      <a class="btn"
+         target="_blank"
+         href="https://wa.me/6285703493336?text=Halo%20Dimsum%20Bara%20Bere%2C%20saya%20mau%20bertanya.">
+        Chat WhatsApp
+      </a>
+    </div>
+  </div>
+</section>
+
+<section class="cta">
+  <h2>Yuk, Jajan Dimsum! 🔥</h2>
+  <p>Enak, gurih, banyak pilihan, dan ramah di kantong.</p>
+  <a class="btn"
+     href="https://wa.me/6285703493336?text=Halo%20Dimsum%20Bara%20Bere%2C%20saya%20mau%20pesan%20dimsum.">
+    Pesan Sekarang
+  </a>
+</section>
+
+</main>
+
+<footer>
+  <h3>🥟 Dimsum Bara Bere</h3>
+  <p>Dimsum Ayam dengan Topping Favorit</p>
+  <p>© <span id="tahun"></span> Dimsum Bara Bere</p>
+</footer>
+
+<a class="wa-float"
+   target="_blank"
+   href="https://wa.me/6285703493336?text=Halo%20Dimsum%20Bara%20Bere%2C%20saya%20mau%20pesan%20dimsum.">
+  ☎ Pesan WhatsApp
+</a>
+
+<script>
+function pesan(menu) {
+  const nomor = "6285703493336";
+  const teks = `Halo Dimsum Bara Bere, saya mau pesan dimsum topping ${menu}. Harga Rp1.000 per pcs.`;
+  window.open(
+    `https://wa.me/${nomor}?text=${encodeURIComponent(teks)}`,
+    "_blank"
+  );
+}
+
+document.getElementById("tahun").textContent =
+  new Date().getFullYear();
+</script>
+
+</body>
+</html>
